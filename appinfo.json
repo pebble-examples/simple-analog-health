@@ -1,0 +1,24 @@
+{
+  "uuid": "0b74c0aa-2063-4501-9166-9646769f75e7",
+  "shortName": "Simple Analog Health",
+  "longName": "Simple Analog Health",
+  "companyName": "Pebble Technology",
+  "versionCode": 1,
+  "versionLabel": "1.0",
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {},
+  "resources": {
+    "media": []
+  },
+  "targetPlatforms": [
+    "aplite",
+    "basalt",
+    "chalk"
+  ],
+  "sdkVersion": "3",
+  "capabilities": [
+      "health"
+  ]
+}
