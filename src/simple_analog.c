@@ -9,8 +9,6 @@ static TextLayer *s_label, *s_num_label;
 static GPath *s_tick_paths[NUM_CLOCK_TICKS];
 static GPath *s_minute_arrow, *s_hour_arrow;
 
-static bool s_health_available;
-
 static void health_handler(HealthEventType event, void *context) {
   static char s_value_buffer[8];
   if (event == HealthEventMovementUpdate) {
@@ -104,12 +102,10 @@ static void window_load(Window *window) {
   layer_add_child(window_layer, s_hands_layer);
 
   // subscribe to health events
-  s_health_available = health_service_events_subscribe(health_handler, NULL);
-  if(s_health_available) {
+  if(health_service_events_subscribe(health_handler, NULL)) {
     // force initial steps display
     health_handler(HealthEventMovementUpdate, NULL);
-  }
-  else {
+  } else {
     APP_LOG(APP_LOG_LEVEL_ERROR, "Health not available!");
   }
 
